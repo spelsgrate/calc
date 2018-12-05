@@ -1,0 +1,19 @@
+#outerForm {
+    padding: 25px;
+    margin: 25px;
+}
+
+input {
+    margin: 5px;
+}
+.ln {
+    display: block;
+    margin: 5px;
+}
+
+.answer {
+    font-family: sans-serif;
+    font-size: 32pt;
+    text-align: center;
+    background-color: beige;
+}
