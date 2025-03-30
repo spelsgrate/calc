@@ -11,33 +11,58 @@
 </head>
 
 <body>
-    <!-- Main calculator container -->
-    <div id="outerForm">
-        <!-- Calculator form with prevention of default submission -->
-        <form id="thisForm" action="" onsubmit="return false;">
-            <!-- Input fields section -->
-            <div class="ln">
-                <label for="oneBox">First Number:</label>
-                <input type="text" id="oneBox" size="10" required>
+    <div class="calculator-container">
+        <!-- Existing calculator form -->
+        <div id="outerForm">
+            <!-- Calculator form with prevention of default submission -->
+            <form id="thisForm" action="" onsubmit="return false;">
+                <!-- Input fields section -->
+                <div class="ln">
+                    <label for="oneBox">First Number:</label>
+                    <input type="text" id="oneBox" size="10" required>
+                </div>
+                <div class="ln">
+                    <label for="twoBox">Second Number:</label>
+                    <input type="text" id="twoBox" size="10" required>
+                </div>
+                <!-- Operation buttons section -->
+                <div class="buttons">
+                    <!-- Basic operations -->
+                    <input type="button" onclick="add()" value="Add">
+                    <input type="button" onclick="sub()" value="Subtract">
+                    <input type="button" onclick="mul()" value="Multiply">
+                    <input type="button" onclick="div()" value="Divide">
+                    <!-- Advanced operations -->
+                    <input type="button" onclick="pow()" value="Power">
+                    <input type="button" onclick="sqrt()" value="√">
+                    <input type="button" onclick="percent()" value="%">
+                    <input type="button" onclick="negate()" value="+/-">
+                    <!-- Clear button -->
+                    <input type="button" onclick="clearFields()" value="Clear">
+                </div>
+                <!-- Results section with better structure -->
+                <div class="results">
+                    <p id="para">=</p>
+                    <div id="history" class="history-section"></div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- New graphing section -->
+        <div id="graphSection">
+            <div class="graph-controls">
+                <label for="functionInput">f(x) = </label>
+                <input type="text" id="functionInput" placeholder="x^2">
+                <input type="button" onclick="plotFunction()" value="Plot">
+                <input type="button" onclick="clearGraph()" value="Clear">
             </div>
-            <div class="ln">
-                <label for="twoBox">Second Number:</label>
-                <input type="text" id="twoBox" size="10" required>
+            <div class="zoom-controls">
+                <input type="button" onclick="zoomIn()" value="Zoom In">
+                <input type="button" onclick="zoomOut()" value="Zoom Out">
+                <input type="button" onclick="resetView()" value="Reset">
             </div>
-            <!-- Operation buttons section -->
-            <div class="buttons">
-                <input type="button" onclick="add()" value="Add">
-                <input type="button" onclick="sub()" value="Subtract">
-                <input type="button" onclick="mul()" value="Multiply">
-                <input type="button" onclick="div()" value="Divide">
-                <input type="button" onclick="pow()" value="Power">
-                <input type="button" onclick="clearFields()" value="Clear">
-            </div>
-            <!-- Results display section -->
-            <p id="para">=</p>
-            <!-- Calculation history section -->
-            <div id="history"></div>
-        </form>
+            <canvas id="graphCanvas"></canvas>
+        </div>
     </div>
 </body>
 </html>
