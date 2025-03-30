@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Meta tags for charset and responsive design -->
     <meta charset="UTF-8">
-	<title> Math </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <!-- External resources -->
     <link rel="stylesheet" href="styles.css">
-    <script src="/calc/functions.js"></script>
+    <script src="functions.js"></script>
 </head>
 
 <body>
+    <!-- Main calculator container -->
     <div id="outerForm">
-        <form id="thisForm" action="">
+        <!-- Calculator form with prevention of default submission -->
+        <form id="thisForm" action="" onsubmit="return false;">
+            <!-- Input fields section -->
             <div class="ln">
-            Line 1: <input type="text" id="oneBox" size="10">
+                <label for="oneBox">First Number:</label>
+                <input type="text" id="oneBox" size="10" required>
             </div>
             <div class="ln">
-            Line 2: <input type="text" id="twoBox" size="10">
+                <label for="twoBox">Second Number:</label>
+                <input type="text" id="twoBox" size="10" required>
             </div>
-            <input type="button" onClick="add()" value="add"><br><br>
-            <input type="button" onClick="sub()" value="subtract"><br><br>
-            <input type="button" onClick="mul()" value="multiply"><br><br>
-            <input type="button" onClick="div()" value="divide"><br><br>
-            <input type="button" onClick="pow()" value="power"><br><br>
-            <p id = "para">
-                =
-            </p>
+            <!-- Operation buttons section -->
+            <div class="buttons">
+                <input type="button" onclick="add()" value="Add">
+                <input type="button" onclick="sub()" value="Subtract">
+                <input type="button" onclick="mul()" value="Multiply">
+                <input type="button" onclick="div()" value="Divide">
+                <input type="button" onclick="pow()" value="Power">
+                <input type="button" onclick="clearFields()" value="Clear">
+            </div>
+            <!-- Results display section -->
+            <p id="para">=</p>
+            <!-- Calculation history section -->
+            <div id="history"></div>
         </form>
     </div>
 </body>
